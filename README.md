@@ -30,6 +30,14 @@ The following section provides a detailed explanation of how the code functions:
 ### Hardware Layout
 ![Design](https://github.com/user-attachments/assets/0148f9f7-29e1-4953-b711-1e7e343d1660)
 
+Connections
+| Sr. No | BME280 Pin | Raspberry Pi Pin        |
+|:--------:|:-----------:|:-------------------------:|
+| 1      | VIN       | 3V3 Power (Pin 1)       |
+| 2      | GND       | Ground (Pin 6)          |
+| 3      | SCL       | GPIO 3 (SCL) (Pin 5)    |
+| 4      | SDA       | GPIO 2 (SDA) (Pin 3)    |
+
 ### Prerequisites
 Install kernel headers and Required Packages
 ```
