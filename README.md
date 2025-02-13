@@ -69,6 +69,7 @@ $ i2cdetect -y 1
 ```
 If the device is detected 0x76 or 0x77 should be available. If it is not available then there would be a problem in the Sensor or the Wiring.
 
+
 Build the project
 ```
 $ make 
@@ -84,6 +85,7 @@ Builded Device Tree Overlay and kernel module
 ```
 Multiple files would be created in the directory. The one's which are important to us are ``bme280.ko`` and ``bme280_overlay.dtbo``
 
+
 Dynamically load the DTO for the BME280
 ```
 $ sudo dtoverlay bme280_overlay.dtbo
@@ -92,6 +94,7 @@ A device ``1-0076`` will be loaded in ``/sys/bus/i2c/devices/``. Use the followi
 ```
 $ ls /sys/bus/i2c/devices/
 ```
+
 
 Load the Kernel Module
 ```
@@ -114,6 +117,7 @@ A driver ``bme280`` would be created in ``/sys/bus/i2c/drivers/``. Also a file `
 $ ls /sys/bus/i2c/drivers
 ```
 
+
 Echo 1 to the file ``/sys/bus/i2c/devices/1-0076/export`` for enabling the data and configuration files.
 ```
 $ echo 1 | sudo tee /sys/bus/i2c/devices/1-0076/export
@@ -128,7 +132,7 @@ $ cat /sys/bus/i2c/devices/1-0076/values/temperature
 ```
 Similarly pressure and humidity values can be read from respective files.
 
-## Configurations
+## Configuration
 Follow the general command to configure the sensor using the ``/sys/bus/i2c/devices/1-0076/config/`` files
 ```
 $ echo <config_value> | sudo tee /sys/bus/i2c/devices/1-0076/config/<file_name>
