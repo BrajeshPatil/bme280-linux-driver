@@ -425,24 +425,24 @@ static struct attribute_group bme280_config_group = {
 static int create_sysfs_files(void) {
     int ret;
 
-    ret = sysfs_create_group(&bme280_i2c_client->dev.kobj, &bme280_values_group);
+    ret = sysfs_create_group(bme280_kobj, &bme280_values_group);
     if (ret) {
         dev_err(&bme280_i2c_client->dev, "Failed to create values directory\n");
         return ret;
     }
 
-    ret = sysfs_create_group(&bme280_i2c_client->dev.kobj, &bme280_config_group);
+    ret = sysfs_create_group(bme280_kobj, &bme280_config_group);
     if (ret) {
         dev_err(&bme280_i2c_client->dev, "Failed to create config directory\n");
-        sysfs_remove_group(&bme280_i2c_client->dev.kobj, &bme280_values_group);
+        sysfs_remove_group(bme280_kobj, &bme280_values_group);
         return ret;
     }
     return ret;
 }
 
 static void remove_sysfs_files(void) {
-    sysfs_remove_group(&bme280_i2c_client->dev.kobj, &bme280_values_group);
-    sysfs_remove_group(&bme280_i2c_client->dev.kobj, &bme280_config_group);
+    sysfs_remove_group(bme280_kobj, &bme280_values_group);
+    sysfs_remove_group(bme280_kobj, &bme280_config_group);
 }
 
 static int bme280_probe(struct i2c_client *client){
