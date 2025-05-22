@@ -12,7 +12,7 @@
 #include <linux/delay.h>
 #include <linux/device.h>
 
-MODULE_AUTHOR("Johannes 4Linux");
+MODULE_AUTHOR("Brajesh Patil");
 MODULE_LICENSE("GPL");
 MODULE_DESCRIPTION("A driver for reading out a BME280 temperature sensor");
 
